@@ -1,4 +1,4 @@
-
+import banner from "./assets/banner.jpg";
 import headshot from "./assets/headshot.jpeg";
 
 export default function EngineeringPortfolio() {
@@ -96,8 +96,8 @@ export default function EngineeringPortfolio() {
             <div className="absolute inset-0 bg-cyan-400 blur-3xl opacity-20 rounded-full"></div>
 
             <img
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop"
-              alt="Engineering workspace"
+              src={banner}
+              alt="Booth photo at robotics competition"
               className="relative rounded-3xl shadow-2xl border border-white/10"
             />
           </div>
