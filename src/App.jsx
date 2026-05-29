@@ -63,16 +63,15 @@ export default function EngineeringPortfolio() {
         <div className="max-w-5xl grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="uppercase tracking-[0.3em] text-cyan-400 mb-4 text-sm">
-              Engineering Portfolio
+              Sebastian Graham
             </p>
 
             <h2 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-              Building modern engineering solutions.
+              Engineering Portfolio
             </h2>
 
             <p className="text-zinc-300 text-lg leading-relaxed mb-8">
-              Mechanical, software, and embedded systems projects presented in a clean,
-              modern portfolio template.
+              Compilation of my engineering projects and experiences.
             </p>
 
             <div className="flex gap-4 flex-wrap">
