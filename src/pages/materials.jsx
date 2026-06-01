@@ -17,8 +17,7 @@ export default function Materials() {
           </h1>
 
           <p className="text-zinc-400 text-lg">
-            Lecture notes, lab reports, assignments,
-            reference sheets, and project documentation.
+            Lecture notes, lab reports, and assignments.
           </p>
         </div>
 
