@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   return (
     <header className="fixed top-0 left-0 w-full backdrop-blur-md bg-black/40 border-b border-white/10 z-50">
@@ -14,11 +17,44 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-8 text-sm text-zinc-300">
-          <Link to="/">Portfolio</Link>
-          <Link to="/materials">Materials</Link>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+        <Link
+            to="/"
+            className="hover:text-cyan-400 transition-colors"
+        >
+            Portfolio
+        </Link>
+
+        <Link
+            to="/materials"
+            className="hover:text-cyan-400 transition-colors"
+        >
+            Materials
+        </Link>
+
+        {isHome && (
+            <>
+            <a
+                href="#about"
+                className="hover:text-cyan-400 transition-colors"
+            >
+                About
+            </a>
+
+            <a
+                href="#projects"
+                className="hover:text-cyan-400 transition-colors"
+            >
+                Projects
+            </a>
+
+            <a
+                href="#contact"
+                className="hover:text-cyan-400 transition-colors"
+            >
+                Contact
+            </a>
+            </>
+        )}
         </nav>
 
         {/* Mobile Button */}
@@ -34,21 +70,28 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden border-t border-white/10 bg-zinc-900">
           <div className="flex flex-col p-4 gap-4">
-            <Link to="/" onClick={() => setMenuOpen(false)}>
-              Portfolio
+            <Link
+                to="/"
+                onClick={() => setMenuOpen(false)}
+            >
+                Portfolio
             </Link>
 
             <Link
-              to="/materials"
-              onClick={() => setMenuOpen(false)}
+                to="/materials"
+                onClick={() => setMenuOpen(false)}
             >
-              Materials
+                Materials
             </Link>
 
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </div>
+            {isHome && (
+                <>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                </>
+            )}
+            </div>
         </div>
       )}
     </header>
