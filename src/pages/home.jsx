@@ -45,11 +45,11 @@ export default function Home() {
         <div className="max-w-5xl grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="uppercase tracking-[0.3em] text-cyan-400 mb-4 text-sm">
-              Sebastian Graham
+              Engineering Portfolio
             </p>
 
             <h2 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-              Engineering Portfolio
+              Sebastian Graham
             </h2>
 
             <p className="text-zinc-300 text-lg leading-relaxed mb-8">
