@@ -275,12 +275,17 @@ export default function Home() {
           </p>
 
           <div className="flex justify-center gap-4 flex-wrap">
-            <a
-              href="mailto:sebastiangraham2007@gmail.com"
-              className="px-6 py-3 rounded-2xl bg-cyan-400 text-black font-semibold hover:scale-105 transition-transform"
+            <button
+            onClick={() => {
+                navigator.clipboard.writeText(
+                "sebastiangraham2007@gmail.com"
+                );
+                alert("Email copied to clipboard!");
+            }}
+            className="px-6 py-3 rounded-2xl bg-zinc-800 border border-white/10 hover:bg-zinc-700 transition-colors"
             >
-              Email Me
-            </a>
+            sebastiangraham2007@gmail.com
+            </button>
 
             <a
               href="https://github.com/Seveastian"
