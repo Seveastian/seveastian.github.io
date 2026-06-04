@@ -1,2 +1,1 @@
-# seveastian.github.io
-Public portfolio website for Sebastian Graham
+React Project Files for my personal portfolio - Sebastian Graham
