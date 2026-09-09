@@ -7,9 +7,9 @@ import headshot from "../assets/headshot.jpeg";
 export default function Home() {
   const projects = [
     {
-      title: "Autonomous Robot",
+      title: "VEX Robotics Robot",
       description:
-        "A robotics project using computer vision and sensor fusion for autonomous navigation.",
+        "",
       image:
         "https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200&auto=format&fit=crop",
       tech: ["ROS", "Python", "OpenCV"],

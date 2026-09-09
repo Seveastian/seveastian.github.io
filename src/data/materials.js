@@ -3,21 +3,14 @@ export const materials = [
         semester: "Spring 2026",
         courses:[
             {
-                course: "CSC116",
+                course: "CSC115",
                 files: [
-                
+                    
                 ]
             },
 
             {
                 course: "ECE241",
-                files: [
-                
-                ]
-            },
-
-            {
-                course: "ECE250",
                 files: [
                 
                 ]
