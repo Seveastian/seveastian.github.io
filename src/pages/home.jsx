@@ -12,7 +12,7 @@ export default function Home() {
         "",
       image:
         "https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200&auto=format&fit=crop",
-      tech: ["ROS", "Python", "OpenCV"],
+      tech: ["C++", "Pathfinding/Following Algorithms", "OpenCV"],
     },
     {
       title: "IoT Smart Home System",
@@ -182,21 +182,21 @@ export default function Home() {
                       <div className="bg-zinc-800/80 p-5 rounded-2xl border border-white/5">
                         <h5 className="font-bold text-lg mb-3 text-white">What</h5>
                         <p className="text-zinc-400 leading-relaxed text-sm">
-                          Describe what the project does and what engineering problem it solves.
+                          Working as Programming lead on a team of 5 students, I was responsible for implementing and testing the algorithms for the robot's navigation system. As well as implementing sensors and control logic for the robot's subsystems.
                         </p>
                       </div>
 
                       <div className="bg-zinc-800/80 p-5 rounded-2xl border border-white/5">
                         <h5 className="font-bold text-lg mb-3 text-white">Why</h5>
                         <p className="text-zinc-400 leading-relaxed text-sm">
-                          Explain the motivation behind the project and why
+                          The project gave me an opportunity to apply robotics and programming concepts to a real-world system where reliability and precision were critical. I wanted to develop more advanced autonomous capabilities rather than relying solely on driver control, while gaining experience integrating software with sensors and mechanical subsystems.
                         </p>
                       </div>
 
                       <div className="bg-zinc-800/80 p-5 rounded-2xl border border-white/5">
                         <h5 className="font-bold text-lg mb-3 text-white">How</h5>
                         <p className="text-zinc-400 leading-relaxed text-sm">
-                          Discuss workflow, technical stack, testing process, and engineering decisions.
+                          I developed a Pure Pursuit path-following system to allow the robot to autonomously follow planned trajectories. I implemented dead-wheel odometry to estimate the robot's position and orientation during autonomous operation. I also integrated sensors with PID controllers for the arm subsystems, allowing the mechanisms to move to specific positions more accurately and consistently. These systems were continuously tested and tuned to improve autonomous reliability and overall robot performance.
                         </p>
                       </div>
                     </div>
