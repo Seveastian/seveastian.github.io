@@ -52,7 +52,7 @@ export default function Home() {
           </div>
           <figure className="portrait">
             <img src={headshot} alt="Sebastian Graham" width="642" height="428" fetchPriority="high" />
-            <figcaption><span>Sebastian Graham</span><span aria-hidden="true">SG / 01</span></figcaption>
+
           </figure>
           <div className="hero-bottom"><span>Robotics / Software / Hardware</span></div>
         </section>
