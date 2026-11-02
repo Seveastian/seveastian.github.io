@@ -1,3 +1,27 @@
+import { useState } from 'react';
+import droneMain from '../assets/drone-main.jpeg';
+import droneElectronics from '../assets/drone-electronics.jpeg';
+import droneWorkbench from '../assets/drone-workbench.jpeg';
+import droneFrame from '../assets/drone-frame.jpeg';
+import droneOutdoor from '../assets/drone-outdoor.gif';
+import droneOutdoorStill from '../assets/drone-outdoor-still.jpg';
+import droneVision from '../assets/drone-vision.gif';
+import droneVisionStill from '../assets/drone-vision-still.jpg';
+
+function DemoGif({ animation, still, caption, alt }) {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <figure>
+      <img src={playing ? animation : still} alt={alt} loading="lazy" />
+      <figcaption className="demo-caption">
+        <span>{caption}</span>
+        <button type="button" className="demo-toggle" onClick={() => setPlaying(!playing)} aria-pressed={playing} aria-label={`${playing ? 'Pause' : 'Play'} ${caption.toLowerCase()}`}>
+          {playing ? 'Pause' : 'Play'}
+        </button>
+      </figcaption>
+    </figure>
+  );
+}
 import Navbar from '../components/navbar';
 import banner from '../assets/banner.jpg';
 import headshot from '../assets/headshot.jpeg';
@@ -12,10 +36,10 @@ import frcWorkbench from '../assets/frc-workbench.jpeg';
 import frcCompetition from '../assets/frc-competition.jpeg';
 
 const vexPhotos = [
-  { src: vexWorkbench, caption: 'Robot on the workbench', alt: 'Pink VEX robot with raised arm and exposed drivetrain on a workbench' },
-  { src: vexMechanisms, caption: 'Mechanisms and wiring', alt: 'Close-up of the VEX robot frame, gears, motors, and wiring' },
-  { src: vexChampionship, caption: 'Robots and regional championship banners', alt: 'Two VEX robots displayed with trophies and Vancouver Island Regional Championship banners' },
-  { src: vexAward, caption: 'Robot with the Innovate Award', alt: 'VEX robot 7842Z beside an Innovate Award trophy in Port Alberni' },
+  { src: vexWorkbench, caption: 'Workbench', alt: 'Pink VEX robot with raised arm and exposed drivetrain on a workbench' },
+  { src: vexMechanisms, caption: 'Mechanisms', alt: 'Close-up of the VEX robot frame, gears, motors, and wiring' },
+  { src: vexChampionship, caption: 'Regional championship', alt: 'Two VEX robots displayed with trophies and Vancouver Island Regional Championship banners' },
+  { src: vexAward, caption: 'Innovate Award', alt: 'VEX robot 7842Z beside an Innovate Award trophy in Port Alberni' },
 ];
 
 function PhotoGallery({ title, photos, fullWidth = false }) {
@@ -61,10 +85,10 @@ export default function Home() {
           <div className="wrap">
             <div className="section-heading"><p className="eyebrow">01 / Selected work</p><h2 id="work-title">Engineering Projects</h2></div>
             <article id="vex" className="featured-project">
-              <header className="project-heading"><span className="project-index">01</span><span>VEX Robotics</span><span className="project-context">Competition robotics</span></header>
+              <header className="project-heading"><span className="project-index">01</span><span className="project-context">Competition robotics</span></header>
               <figure className="competition-photo">
                 <img src={banner} alt="VEX robotics team members with their competition robots at the team booths" width="4080" height="3072" loading="lazy" />
-                <figcaption>At the competition, with the robots and the team.</figcaption>
+                <figcaption>Team photo</figcaption>
               </figure>
               <div className="project-story">
                 <p className="eyebrow">Robotics / C++ / Controls</p>
@@ -73,24 +97,26 @@ export default function Home() {
                 <p>As programming lead on a team of five students, I worked on autonomous navigation, sensors, and control logic. The goal was to get the robot following planned paths and moving its mechanisms reliably.</p>
                 <dl className="project-facts"><div><dt>My role</dt><dd>Programming lead</dd></div><div><dt>Team</dt><dd>5 students</dd></div></dl>
                 <details className="project-details">
-                  <summary>Technical details <span aria-hidden="true">+</span></summary>
+                  <summary>Project details <span aria-hidden="true">+</span></summary>
                   <div className="detail-copy">
                     <h4>Finding its position</h4><p>I implemented dead-wheel odometry to estimate the robot's position and orientation during autonomous operation.</p>
                     <h4>Following a path</h4><p>I developed a Pure Pursuit path-following system so the robot could follow planned trajectories.</p>
                     <h4>Controlling the mechanisms</h4><p>I integrated sensors with PID controllers for the arm subsystems, then tested and tuned the systems to improve consistency.</p>
+                    <h4>Awards</h4><p>Our team won the Vancouver Island Regional Championship and earned four Innovate Awards.</p>
                   </div>
                 </details>
+                  <a className="text-link project-source" href="https://github.com/Seveastian/7842-Zephractal/tree/main/7842Z%20Old%20Code/LemTest" target="_blank" rel="noopener noreferrer">View code <span aria-hidden="true">↗</span></a>
               </div>
-              <PhotoGallery title="VEX photos" photos={vexPhotos} fullWidth />
+              <PhotoGallery title="Photos" photos={vexPhotos} fullWidth />
             </article>
             <div className="additional-projects">
               <article id="frc" className="featured-project">
-                <header className="project-heading"><span className="project-index">02</span><span>FIRST Robotics Competition</span><span className="project-context">2024 season</span></header>
+                <header className="project-heading"><span className="project-index">02</span><span className="project-context">2024 season</span></header>
                 <figure className="competition-photo project-main-photo">
                   <a href={frcCompetition} target="_blank" rel="noopener noreferrer" aria-label="View full-size FRC competition photo">
                     <img src={frcCompetition} alt="FRC robot 9641 on the CRESCENDO competition field" loading="lazy" />
                   </a>
-                  <figcaption>Team 9641 on the CRESCENDO field</figcaption>
+                  <figcaption>Competition</figcaption>
                 </figure>
                 <div className="project-story">
                   <p className="eyebrow">Robotics / Python / AprilTags / Limelight</p>
@@ -98,7 +124,7 @@ export default function Home() {
                   <p>I spent the 2024 season as lead and sole programmer for FIRST Robotics Competition team 9641. With guidance from a mentor, I implemented the robot's software in Python, including pose estimation, automated aiming, and subsystem automation.</p>
                   <dl className="project-facts"><div><dt>My role</dt><dd>Lead programmer</dd></div><div><dt>Season</dt><dd>2024</dd></div></dl>
                   <details className="project-details">
-                    <summary>Season details <span aria-hidden="true">+</span></summary>
+                    <summary>Project details <span aria-hidden="true">+</span></summary>
                     <div className="detail-copy">
                       <h4>Vision and automation</h4>
                       <p>I used AprilTags and Limelight to estimate the robot's position and orientation on the field. The robot used this estimate to automatically turn toward the goal before shooting game elements.</p>
@@ -108,18 +134,19 @@ export default function Home() {
                       <p>Our team won the Rookie All Star Award at the 2024 Canadian Pacific Regional.</p>
                     </div>
                   </details>
+                  <a className="text-link project-source" href="https://gitlab.com/Dragoby/firstrobotics-sd71/-/tree/9641-Comp?ref_type=heads" target="_blank" rel="noopener noreferrer">View code <span aria-hidden="true">↗</span></a>
                 </div>
-                <PhotoGallery title="FRC photos" photos={[
-                  { src: frcWorkbench, caption: 'Robot mechanism on the workbench', alt: 'FRC robot mechanism and wiring being assembled on a workbench' },
+                <PhotoGallery title="Photos" photos={[
+                  { src: frcWorkbench, caption: 'Workbench', alt: 'FRC robot mechanism and wiring being assembled on a workbench' },
                 ]} fullWidth />
               </article>
               <article id="smart-system" className="featured-project">
-                <header className="project-heading"><span className="project-index">03</span><span>Classroom Smart System</span><span className="project-context">Class project</span></header>
+                <header className="project-heading"><span className="project-index">03</span><span className="project-context">Class project</span></header>
                 <figure className="competition-photo project-main-photo">
                   <a href={smartBoard} target="_blank" rel="noopener noreferrer" aria-label="View full-size smart system breadboard photo">
                     <img src={smartBoard} alt="Smart system breadboard with Raspberry Pi Pico W, sensors, wiring, and indicator LEDs" loading="lazy" />
                   </a>
-                  <figcaption>Breadboard prototype and sensor wiring</figcaption>
+                  <figcaption>Breadboard prototype</figcaption>
                 </figure>
                 <div className="project-story">
                   <p className="eyebrow">C++ / Raspberry Pi Pico W / Sensors</p>
@@ -137,12 +164,18 @@ export default function Home() {
                     </div>
                   </details>
                 </div>
-                <PhotoGallery title="Smart system photos" photos={[
-                  { src: smartDashboard, caption: 'Web interface for sensor readings and system status', alt: 'Web dashboard displaying occupancy, lighting, temperature, and heating controls' },
+                <PhotoGallery title="Photos" photos={[
+                  { src: smartDashboard, caption: 'Web interface', alt: 'Web dashboard displaying occupancy, lighting, temperature, and heating controls' },
                 ]} fullWidth />
               </article>
-              <article id="drone" className="featured-project project-without-photo">
-                <header className="project-heading"><span className="project-index">04</span><span>Autonomous Drone Vision</span><span className="project-context">Ongoing</span></header>
+              <article id="drone" className="featured-project">
+                <header className="project-heading"><span className="project-index">04</span><span className="project-context">Ongoing</span></header>
+                <figure className="competition-photo project-main-photo">
+                  <a href={droneMain} target="_blank" rel="noopener noreferrer" aria-label="View full-size drone photo">
+                    <img src={droneMain} alt="Assembled quadcopter with carbon-fiber arms and exposed wiring" loading="lazy" />
+                  </a>
+                  <figcaption>Drone</figcaption>
+                </figure>
                 <div className="project-story">
                   <p className="eyebrow">Python / OpenCV / Raspberry Pi 4B / Pixhawk V6X</p>
                   <h3>Autonomous Drone Vision</h3><p className="project-lead">Person tracking and PID control · Ongoing</p>
@@ -155,10 +188,23 @@ export default function Home() {
                       <h4>Tracking and control</h4>
                       <p>The software uses PID control for X, Y, and Z movement and yaw, with the goal of following a person and keeping them centered in the camera view.</p>
                       <h4>Current status</h4>
-                      <p>The drone's tracking and following behavior has not yet been tested in flight. Flight testing is the next step.</p>
+                      <p>The vision system has been tested on the onboard hardware. The outdoor footage shows the drone in flight; autonomous person-following has not yet been validated in flight.</p>
                     </div>
                   </details>
+                  <a className="text-link project-source" href="https://github.com/seb135549/dronev1" target="_blank" rel="noopener noreferrer">View code <span aria-hidden="true">↗</span></a>
                 </div>
+                              <PhotoGallery title="Photos" photos={[
+                  { src: droneFrame, caption: 'Frame assembly', alt: 'White drone frame with Raspberry Pi and wiring during assembly' },
+                  { src: droneWorkbench, caption: 'Workbench', alt: 'Assembled drone on the workbench' },
+                  { src: droneElectronics, caption: 'Electronics', alt: 'Side view of the drone showing onboard electronics and Raspberry Pi ports' },
+                ]} fullWidth />
+                <details className="project-details photo-disclosure photo-disclosure-wide">
+                  <summary>Demos (2) <span aria-hidden="true">+</span></summary>
+                  <div className="project-gallery">
+                    <DemoGif animation={droneOutdoor} still={droneOutdoorStill} caption="Outdoor test" alt="Silent animation of the drone during an outdoor flight test" />
+                    <DemoGif animation={droneVision} still={droneVisionStill} caption="Person detection" alt="Silent animation of the vision system drawing detection boxes around people" />
+                  </div>
+                </details>
               </article>
             </div>
           </div>
@@ -174,7 +220,7 @@ export default function Home() {
         </section>
 
         <section id="contact" className="contact-section" aria-labelledby="contact-title">
-          <div className="wrap"><p className="eyebrow">03 / Get in touch</p><h2 id="contact-title">Contact</h2><p>Have a project in mind, or want to talk robotics? Send me a note.</p>
+          <div className="wrap"><p className="eyebrow">03 / Get in touch</p><h2 id="contact-title">Contact</h2>
             <a className="email-link" href="mailto:sebastiangraham2007@gmail.com">sebastiangraham2007@gmail.com <span aria-hidden="true">↗</span></a>
             <div className="contact-bottom"><div className="social-links"><a href="https://github.com/Seveastian" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/sebastian-graham-uvic/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div><a href="#home">Back to top ↑</a></div>
           </div>

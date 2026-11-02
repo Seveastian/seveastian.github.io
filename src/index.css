@@ -697,3 +697,24 @@ h1 {
     font-size: 29px;
   }
 }
+
+.project-source {
+  margin-top: 22px;
+}
+
+.demo-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.demo-toggle {
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid #829286;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.demo-toggle:hover { background: #dde2d8; }
+.demo-toggle:focus-visible { outline: 2px solid #a44e2d; outline-offset: 3px; }
